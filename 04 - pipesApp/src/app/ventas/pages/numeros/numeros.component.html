@@ -1,0 +1,24 @@
+<div class="text-layout">
+    <h1>DecimalPipe, CurrecyPipe y PercentagePipe</h1>
+    <p>Pipes incluidos en Angular del CommonModule para trabajar números</p>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-4">
+        <p-card header="Decimal Pipe" subheader="Ventas netas del presente año  ">
+            <i class="pi pi-dollar"></i>
+            {{gananciaNeta | number:'1.2-2' }}
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="Currency Pipe" subheader="Ventas brutas del presente año  ">
+            {{gananciaBruta | currency:'$' }}
+        </p-card>
+    </div>
+
+    <div class="p-col-4">
+        <p-card header="Percentage Pipe" subheader="Porcentaje de ganancias netas sobre brutas">
+            {{porcentaje | percent: '2.2-2' }}
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="text-layout">
+    <h1>Pipes personalizados</h1>
+    <p>Pipes creados por mí</p>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-4">
+        <p-card header="Pipe Mayúsculas" subheader="Pipe para alternar entre mayúsculas y minúsculas">
+            {{nombre | mayusculas: enMayusculas }}
+            <br>
+        </p-card>
+    </div>
+</div>
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+
+            
+    </div>
+    <h2>Tabla para ordenar con pipes</h2>
+    
+    <div class="p-toolbar-group-right">
+        <button pButton label="Toggle mayúsculas" class="p-mr-1" (click)="toggleMayusculas()"></button>
+        <button pButton label="Por nombre" icon="pi pi-sort" class="p-mr-1" (click)="ordenarPor('nombre')"></button>
+        <button pButton label="Por fuerza" icon="pi pi-sort" class="p-mr-1" (click)="ordenarPor('fuerza')"></button>
+        <button pButton label="Por velocidad" icon="pi pi-sort" class="p-mr-1" (click)="ordenarPor('velocidad')"></button>
+        <button pButton label="Vuela" icon="pi pi-sort" class="p-mr-1" (click)="ordenarPor('vuela')"></button>
+        <button pButton label="Por color" icon="pi pi-sort" class="p-mr-1" (click)="ordenarPor('color')"></button>
+    </div>
+</p-toolbar>
+
+<div class="p-grid">
+    <div class="p-col" class="p-mt-2">
+        <p-table [value]="heroes | ordenar:ordenarClick">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fuerza</th>
+                    <th>Velocidad</th>
+                    <th>Vuela</th>
+                    <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.fuerza}}</td>
+                    <td>{{heroe.velocidad}}</td>
+                    <td>{{heroe.vuela | vuela | titlecase}}</td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<hr>
+<h3>SortTable de PrimeNg</h3>
+<div class="p-grid">
+    <div class="p-col" class="p-mt-2">
+        <p-table [value]="heroes | slice:0">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                    <th pSortableColumn="fuerza">Fuerza <p-sortIcon field="fuerza"></p-sortIcon></th>
+                    <th pSortableColumn="velocidad">Velocidad <p-sortIcon field="velocidad"></p-sortIcon></th>
+                    <th pSortableColumn="vuela">Vuela<p-sortIcon field="vuela"></p-sortIcon></th>
+                    <th pSortableColumn="color">Color<p-sortIcon field="color"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.fuerza}}</td>
+                    <td>{{heroe.velocidad}}</td>
+                    <td>{{heroe.vuela | vuela | titlecase}}</td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="text-layout">
+    <h1>Pipes no tan comunes</h1>
+    <p>Pipes incluidos en Angular del CommonModule para trabajar números</p>
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col-12">
+        <p-fieldset legend="i18nSelectPipe" [toggleable]='true'>
+            Saludos {{invitadoALaVistaNombre}}, es un placer 
+            {{ invitadoALaVistaGenero | i18nSelect: i18SelectGenero}}
+            al evento.
+            <br>
+            <hr>
+            <p-button label="Cambiar persona" icon="pi pi-forward" iconPos="right" (onClick)="cambiarPersona()">
+
+            </p-button>
+        </p-fieldset>
+    </div>
+    <div class="p-col-12">
+        <p-fieldset legend="i18nPluralPipe" [toggleable]='true'>
+            {{clientes.length | i18nPlural:clientesMap}}
+            <br>
+            <hr>
+            <p-button label="Atender cliente" icon="pi pi-check" iconPos="right" (onClick)="atenderCliente()">
+
+            </p-button>
+        </p-fieldset>
+    </div>
+    <div class="p-col-12">
+        <p-fieldset legend="Slice pipe" [toggleable]='true'>
+            <b>Array Original</b>
+            <pre><u>{{clientes}}</u></pre>
+            <b>slice 0:2</b>
+            <pre>{{clientes | slice:0:2 }}</pre>
+            <b>slice 1:2</b>
+            <pre>{{clientes | slice:1:2 }}</pre>
+            <b>slice 1:3</b>
+            <pre>{{clientes | slice:1:3 }}</pre>
+
+
+            <b>String original:</b>
+            <pre><u>{{clientes[0]}}</u></pre>
+            <b>slice 0:3</b>
+            <pre>{{ clientes[0] | slice:0:3 }}</pre>
+            <b>slice 3:3</b>
+            <pre>{{clientes[0] | slice:3:3 }}</pre>
+            <b>slice 3:4</b>
+            <pre>{{clientes[0] | slice:3:4 }}</pre>
+
+        </p-fieldset>
+    </div>
+    <div class="p-col-12">
+        <p-fieldset legend="KeyValue y Json pipe" [toggleable]='true'>
+            <b>Objeto original: (pasado por Json Pipe)</b>
+            <pre>{{persona | json}}</pre>
+            <hr>
+            <b>Objeto pasado por KeyValue Pipe</b>
+            <ul>
+                <li *ngFor="let item of persona | keyvalue">
+                    <b>{{item.key | titlecase}}</b>: {{item.value}}
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+    <div class="p-col-12">
+        <p-fieldset legend="Async pipe" [toggleable]='true'>
+            <b>Async Pipe para Observable: </b>
+            <pre>{{miObservable | async}}</pre>
+            <b>Async pipe para promesa:</b>
+            <pre>La promesa se resolverá en 9 segundos (contador: {{miObservable | async}})</pre>
+            <pre *ngIf="!(promesa | async)"
+            >Resolviendo promesa...</pre>
+            <b>{{promesa | async}}</b>
+        </p-fieldset>
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<h2>Reactive: <small>Básicos</small></h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form   autocomplete="off" 
+                [formGroup]="miFormulario"
+                (ngSubmit)="guardar()"       
+        >
+            <!-- Campo de producto -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-9" >
+                    <input  type="text"
+                            class="form-control"
+                            placeholder="Nombre del producto"
+                            formControlName="nombre"
+                    >
+                    <span   class="form-text text-danger"
+                            *ngIf="esInvalido( 'nombre' )"
+                    >
+                        Debe tener 3 letras como mínimo
+                    </span>
+                </div>
+            </div>
+
+            <!-- Campo de precio -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Precio</label>
+                <div class="col-sm-9" >
+                    <input  type="number"
+                            class="form-control"
+                            placeholder="Precio del producto"
+                            formControlName="precio"
+                    >   
+                    <span   class="form-text text-danger"
+                            *ngIf="esInvalido( 'precio' )"
+                    >
+                        El precio debe ser mayor o igual a 10
+                    </span>             
+                </div>
+            </div>
+
+            <!-- Campo de existencias -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Existencias</label>
+                <div class="col-sm-9" >
+                    <input  type="number"
+                            class="form-control"
+                            placeholder="Existencias del producto"
+                            formControlName="existencias"
+                    >
+                    <span   class="form-text text-danger"
+                            *ngIf="esInvalido( 'existencias' )" 
+                    >
+                        Las existencias deben ser mayores o iguales a 5
+                    </span>                   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            class="btn btn-primary float-end"
+                    >
+                        Guardar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{miFormulario.valid}}</pre>
+
+        <span>Value precio validation</span>
+        <pre>{{miFormulario?.controls.precio?.value >=100}}</pre>
+        
+        <span>Value</span>
+        <pre>{{miFormulario.value | json}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{miFormulario.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{miFormulario.touched}}</pre>
+
+
+    </div>
+</div>

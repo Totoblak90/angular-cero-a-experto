@@ -1,0 +1,101 @@
+<div class="text-layout">
+    <h1>Pipes básicos</h1>
+    <p>Pipes incluidos en Angular del CommonModule</p>
+
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col-4">
+        <p-card header="UPPERCASE" [subheader]="nombreLowerCase">
+            Transforms to: <br>
+            {{nombreLowerCase | uppercase}}
+
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="lowercase" [subheader]="nombreUpperCase">
+            Transforms to: <br>
+            {{nombreUpperCase | lowercase}}
+
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card header="lowercase" [subheader]="nombreTitleCase">
+            Transforms to: <br>
+            {{nombreTitleCase | titlecase}}
+
+        </p-card>
+    </div>
+
+</div>
+
+<div class="text-layout">
+    <h1>Dale | Fecha | Pipe</h1>
+    <p>Pipe para mostral las fechas incluido en Angular del CommonModule</p>
+
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col-6">
+        <p-card >
+            <ul>
+                <li>
+                    Fecha
+                </li>
+                <li>
+                    Fecha | date
+                </li>
+                <li>
+                    Fecha | date: short
+                </li>
+                <li>
+                    fecha | date:'long'
+                </li>
+                <li>
+                   <u>Fecha | date: custom:</u>
+                    Fecha | date:'dd/LLL/yy, HH:mm:ss, G
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>fecha | date:'long'</li>
+                <p><u>Cambiar el idioma de la fecha a inglés:</u></p>
+                <li>fecha | date:'long':'':'en'</li>
+                <p><u>Cambiar el idioma de la fecha a frances:</u></p>
+                <li>fecha | date:'long':'':'en'</li>
+            </ul>
+        </p-card>
+    </div>
+    <div class="p-col-6">
+        <p-card >
+            <ul>
+                <li>
+                    {{fecha}}
+                </li>
+                <li>
+                    {{fecha | date}}
+                </li>
+                <li>
+                    {{fecha | date:'short'}}
+                </li>
+                <li>
+                    {{fecha | date:'long'}}
+                </li>
+                <li>
+                    {{fecha | date:'dd/LLL/yy, HH:mm:ss, G'}}
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>{{fecha | date:'long':'GMT-6'}}</li>
+                <p><u>Cambiar el idioma de la fecha a inglés:</u></p>
+                <li>{{fecha | date:'long':'':'en'}}</li>
+                <p><u>Cambiar el idioma de la fecha a frances:</u></p>
+                <li>{{fecha | date:'long':'':'fr'}}</li>
+            </ul>
+        </p-card>
+    </div>
+
+</div>
