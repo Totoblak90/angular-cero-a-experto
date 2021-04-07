@@ -3,7 +3,7 @@ const { response, request } = require('express');
 module.exports = {
 
     createUser: (req = request, res = response) => {
-        
+
         const { name, email, password } = req.body
 
         console.log( name, email, password )
